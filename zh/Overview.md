@@ -1,36 +1,36 @@
-## Security > DDoS Guard > 개요
+## Security > DDoS Guard > Overview
 
-DDoS Guard는 외부 DDoS 공격을 실시간으로 탐지하거나 차단해 고객 서비스를 보호하는 서비스입니다.
+DDoS Guard is a service which protects customer services by detecting or blocking external DDoS attacks in real time.
 
-DDoS Guard 서비스에는 Basic과 Managed 2가지 유형이 있습니다.
+There are two types of DDoS Guard Service: Basic and Managed.
 
-- Basic: 일반적인 네트워크 레벨의 DDoS 공격으로부터 클라우드 내의 서비스를 보호하며, NHN 클라우드의 모든 고객에게 무료로 제공되는 서비스입니다.
-- Managed: 고객 맞춤형 구독 서비스로, 보다 향상된 보호 기능을 제공합니다. 정교한 애플리케이션 형태의 DDoS 공격 대응, 서비스 특성에 따른 트래픽 학습과 대응 방식 선택, 실시간 공격 정보 전파 등 보다 높은 가용성을 요구하는 클라우드 고객에게 특화된 보호 서비스를 제공합니다. 
+- Basic: This is a service provided to all NHN Cloud users for free, which protects the services within the cloud from DDoS attack at the general network level.
+- Managed: This is a customized subscription service which provides enhanced protection features and offers specialized protection service for cloud customers who demand higher availability such as response to DDoS attacks in the manner of precise application, traffic learning, and selection of response method based on service traits and propagation of information about real-time attacks. 
 
-## DDoS Guard 특장점
+## DDoS Guard features and benefits
 
-* 실시간 유입 트래픽을 전수 검사해 DDoS 공격을 신속하게 탐지하고 방어합니다. 
-* 고객별 대응 정책과 트래픽 학습 기능으로 최적으로 DDoS 공격을 방어합니다.
-* 다단계 대응 필터와 유효성 검증 기능으로 대용량 또는 애플리케이션 계층의 공격을 효과적으로 차단합니다.
-* 고객 서비스 특성에 따라 DDoS 대응 방법(상시/수동/자동 등)을 제공해, 유연하게 대응 체계를 운용할 수 있습니다. 
-* 전담 보안관제팀에서 24시간, 365일(24 x 365) 모니터링과 상황 전파를 통해 DDoS 공격 상황을 빠르게 파악할 수 있습니다. 
-* DDoS 탐지와 대응에 대한 일간/월간 정기 보고서를 제공합니다. 
+* Quickly detects and fends off DDoS attacks by inspecting all real-time inbound traffic. 
+* Provides optimized protection against DDoS attacks with response policy and traffic learning features tailored to each customer.
+* Effectively blocks large volume attacks or attacks on the application hierarchy with multifactor response filter and validation features.
+* Depending on the customer traits, you can provide DDoS response method (always/manual/automatic) to operate flexibly response system. 
+* Dedicated security control teams use constant monitoring (24 x 7) and status propagation to quickly identify the DDoS attack status. 
+* Provides periodic reports about DDoS detection and response daily/monthly. 
 
-## DDoS Guard 주요 기능
+## DDoS Guard key features
 
 ### Basic
 
-* 클라우드 유입 트래픽 실시간 모니터링
-* 내부 리소스 보호를 위한 DDoS 공격 대응
+* Monitors inbound traffic to cloud in real time
+* Responds to DDoS attacks to protect internal resources
 
 ### Managed
 
-* 고객 맞춤형 DDoS 정책 관리
-* 트래픽 학습 기반 임계치 설정
-* 유효성 검증을 통한 애플리케이션 계층 공격 방어
-* 서비스 특성에 따른 자동 또는 수동 공격 대응
-* DDoS 상세 공격 정보 전파
+* Manages the customized DDoS policies
+* Sets the threshold based on the traffic learning
+* Defends applications from tiered attacks through validation
+* Allows automatic or manual response depending on the nature of the service
+* Propagates detailed information about DDoS attacks
 
-### 보고서
+### Report
 
-* 일간/월간 보고서
+* Daily/monthly report
