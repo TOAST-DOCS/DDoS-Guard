@@ -20,12 +20,12 @@ DDoS Guard 서비스를 사용하려면 **NHN Cloud Console**에 로그인하고
 ## Managed 보고서 설정
 ### 신청
 1. **Managed** 탭에서 **보고서 설정** 버튼을 클릭합니다.
-2. **이용 및 메일 수신 신청" 버튼을 클릭하여 '신청 안 함'에서 '신청'으로 변경합니다.
+2. **이용 및 메일 수신 신청** 버튼을 클릭하여 '신청 안 함'에서 **'신청'**으로 변경합니다.
 3. **보고서 유형**을 선택하고 **확인** 버튼을 클릭합니다.
 
 ### 해제
 1. **Managed** 탭에서 **보고서 설정** 버튼을 클릭합니다.
-2. **이용 및 메일 수신 신청" 버튼을 클릭하여 '신청'에서 '신청 안 함'으로 변경합니다.
+2. **이용 및 메일 수신 신청** 버튼을 클릭하여 '신청'에서 **'신청 안 함'**으로 변경합니다.
 3. **확인** 버튼을 클릭합니다.
 
 
@@ -52,7 +52,7 @@ DDoS Guard 서비스를 사용하려면 **NHN Cloud Console**에 로그인하고
 ![securitymonitoring_console_guide_210625_1.png](http://static.toastoven.net/prod_mss/securitymonitoring_console_guide_220719_1.png)
 
 ## 이벤트 현황 확인
-- **이벤트 현황** 탭에서 Managed를 신청한 인스턴스의 상세 이벤트 현황을 확인할 수 있습니다.
+- **이벤트 현황** 탭에서 Managed를 신청한 인스턴스의 이벤트 통계 정보와 상세 이벤트 현황을 확인할 수 있습니다.
 - 이벤트 로그는 최근 1년 데이터를 보관하며, 데이터는 최대 1개월 단위로 조회할 수 있습니다.
 
 ![securitymonitoring_console_guide_210625_2.png](http://static.toastoven.net/prod_mss/securitymonitoring_console_guide_220719_2.png)
