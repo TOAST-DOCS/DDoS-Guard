@@ -52,7 +52,7 @@ DDoS Guard 서비스를 사용하려면 **NHN Cloud Console**에 로그인하고
 ![securitymonitoring_console_guide_210625_1.png](http://static.toastoven.net/prod_mss/securitymonitoring_console_guide_220719_1.png)
 
 ## 이벤트 현황 확인
-- **이벤트 현황** 탭에서 Managed를 신청한 인스턴스의 이벤트 통계 정보와 상세 이벤트 현황을 확인할 수 있습니다.
+- **이벤트 현황** 탭에서 Managed를 신청한 인스턴스의 이벤트 통계 정보와 상세 이벤트 현황을 확인할 수 있습니다.
 - 이벤트 로그는 최근 1년 데이터를 보관하며, 데이터는 최대 1개월 단위로 조회할 수 있습니다.
 
 ![securitymonitoring_console_guide_210625_2.png](http://static.toastoven.net/prod_mss/securitymonitoring_console_guide_220719_2.png)
