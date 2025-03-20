@@ -2,7 +2,7 @@
 
 여기에서는 DDoS Guard 콘솔 사용 방법을 설명합니다.
 
-DDoS Guard 서비스를 사용하려면 **NHN Cloud Console**에 로그인하고, 서비스 목록에서 **Security > DDoS Guard**를 클릭합니다.
+DDoS Guard 서비스를 사용하려면 **NHN Cloud 콘솔**에 로그인하고, 서비스 선택에서 **Security > DDoS Guard**를 클릭하여 활성화합니다.
 
 
 ## Managed 신청 및 해제 방법
@@ -44,7 +44,7 @@ DDoS Guard 서비스를 사용하려면 **NHN Cloud Console**에 로그인하고
 ## 트래픽 현황 확인
 - 트래픽 현황 탭에서 DDoS 장비를 통해 보호 대상으로 유입되는 모든 트래픽과 차단 트래픽에 대해 통계 정보를 확인할 수 있습니다. 
   - 트래픽 통계 : DDoS 장비로 유입되는 트래픽 통계 정보를 표시합니다. 
-  - 차단 트래픽 통계 : DDoS 장비로 차단되는 트패릭 통계 정보를 표시합니다.
+  - 차단 트래픽 통계 : DDoS 장비로 차단되는 트래픽 통계 정보를 표시합니다.
   - 트래픽 로그는 최근 1달 데이터를 보관합니다.
 
 ![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
@@ -58,4 +58,5 @@ DDoS Guard 서비스를 사용하려면 **NHN Cloud Console**에 로그인하고
 ![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
 
 ![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png)
+
 
