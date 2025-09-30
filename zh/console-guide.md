@@ -1,63 +1,258 @@
-## Security > DDoS Guard > 콘솔 사용 가이드
+## Security > Vaccine > Console Guide 
 
-여기에서는 DDoS Guard 콘솔 사용 방법을 설명합니다.
+This document describes the procedure of enabling and disabling vaccine agents, and how to apply the service. 
 
-DDoS Guard 서비스를 사용하려면 **NHN Cloud 콘솔**에 로그인하고, 서비스 선택에서 **Security > DDoS Guard**를 클릭하여 활성화합니다.
+## Set Security Groups
+
+To communicated with the vaccine server, add the following content to the security groups.
+
+| Direction | Port | Region | CIDR |
+| --- | --- | --- | ---- |
+| Egress | 4119, 4120, 4122 | Korea (Pangyo), Korea (Pyeongchon) | 114.110.144.39/32 |
+
+## Enabling Vaccine Agents 
+
+Import vaccine installation script, for each OS of an instance image. 
+
+![vaccine_01_en_2021_06.png](https://static.toastoven.net/prod_vaccine/vaccine_01_en_2021_06.png)
+
+### For Linux 
+
+1\. To copy installation script, click  **Copy Clipboard**.
+
+2\. Access terminal for an instance to install. 
+
+3\. At the administrator's authority, create and execute an agent script. 
+
+* Create a script by using vi editor. 
+* Change authority of the script file which is created. 
+* Execute file. 
+```
+[root@vaccine-test ~]# cd ~
+[root@vaccine-test ~]# vi agent.sh
+[root@vaccine-test ~]# chmod 744 agent.sh
+[root@vaccine-test ~]# ./agent.sh
+/tmp/DownloadInstallAgentPackage: OK
+Downloading agent package ...
+curl https://114.110.144.39:4119/software/agent/RedHat_EL7/x86_64/ -o /tmp/agent.rpm --insecure --silent
+Installing agent package ...
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:ds_agent-10.0.0-2775.el7         ################################# [100%]
+Starting ds_agent (via systemctl):  [  OK  ]
+HTTP Status: 200 - OK
+Activation will be re-attempted 30 time(s) in case of failure
+dsa_control
+HTTP Status: 200 - OK
+Response:
+Attempting to connect to https://114.110.144.39:4120/
+SSL handshake completed successfully - initiating command session.
+Connected with (NONE) to peer at 114.110.144.39
+Received a 'GetHostInfo' command from the manager.
+Received a 'GetHostInfo' command from the manager.
+Received a 'SetDSMCert' command from the manager.
+Received a 'SetAgentCredentials' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetInterfaces' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetAgentStatus' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetHostMetaData' command from the manager.
+Received a 'SetSecurityConfiguration' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetAgentStatus' command from the manager.
+Command session completed.
+[root@vaccine-test ~]#
+```
+
+### For Windows 
+
+1\. Copy console script. 
+
+2\. Access terminal for an instance to install.  
+
+3\. At the administrator's authority, create and execute agent script. 
+
+* Create a script file by using text editor, like memo pad. 
+* Enable the **Command Prompt** (cmd) window, at the administrator's authority.   
+* Execute in the format of powershell -file "file path/file name". 
+```
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+C:\Users\Administrator>powershell -file "agent.ps1"
 
 
-## Managed 신청 및 해제 방법
-### 신청
-1. DDoS Guard 콘솔에서 서비스 신청 현황 탭을 클릭하고 Managed 탭에서 **Zone 신청** 버튼을 클릭합니다. 
-2. Zone 정보와 보호 대상(IP, 도메인)을 입력하고, 대응 모드를 선택합니다.
-3. 전파 담당자를 입력하고 개인정보 수집 및 이용에 동의한 후, **저장** 버튼을 클릭합니다.
-4. 신청이 완료되면 운영 담당자가 내용을 확인하여 처리합니다. Managed 서비스가 시작되면 현황이 **운영 중**으로 변경됩니다.
-
-### 해제
-1. Managed 신청 현황 목록 중 해제를 원하는 대상을 선택하고 **해제** 버튼을 클릭합니다.
-2. Zone 해제 약관 내용에 동의한 후, **확인** 버튼을 클릭합니다.
-3. 해제가 요청되면 운영 담당자가 내용을 확인하여 처리합니다.
-
-## Managed 보고서 설정
-### 신청
-1. Managed 탭에서 **보고서 설정** 버튼을 클릭합니다.
-2. **이용 및 메일 수신 신청** 버튼을 클릭하여 **신청**으로 변경합니다.
-3. 보고서 유형을 선택하고 **확인** 버튼을 클릭합니다.
-
-### 해제
-1. Managed 탭에서 **보고서 설정** 버튼을 클릭합니다.
-2. **이용 및 메일 수신 신청** 버튼을 클릭하여 **신청 안 함**으로 변경합니다.
-3. **확인** 버튼을 클릭합니다.
+    Directory: C:\Users\Administrator\AppData\Roaming\Trend Micro\Deep Security Agent
 
 
-## 모의 훈련 지원 신청 및 해제
-### 신청
-1. DDoS Guard 콘솔에서 서비스 신청 현황 탭을 클릭하고 모의 훈련 지원 탭에서 **신청** 버튼을 클릭합니다.
-2. 모의 훈련 지원 이용 약관을 확인하고 동의한 후, **확인** 버튼을 클릭합니다.
-3. 기본 정보, 훈련 정보, 공격자 IP 대역, 훈련 대상, 수행 담당자 정보, 훈련 시나리오 정보를 입력합니다.
-4. 부하 테스트는 선택 사항으로 필요 시 정보를 입력하고 **저장** 버튼을 클릭합니다.
-5. 신청이 완료되면 운영 담당자가 내용을 확인하여 처리합니다.
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----      2018-06-05   2:37 pm            installer
+Recording has started. The output is C:\Users\Administrator\AppData\Roaming\Trend Micro\Deep Security Agent\installer\dsa_deploy.log.
+2:37:23 pm - DSA download started
+2:37:23 pm - Download Deep Security Agent Package
+https://114.110.144.39:4119/software/agent/Windows/x86_64/
+2:37:24 pm - Downloaded File Size:
+13897728
+2:37:24 pm - DSA install started
+2:37:24 pm - Installer Exit Code:
+0
+2:37:32 pm - DSA activation started
+HTTP Status: 200 - OK
+Activation will be re-attempted 30 time(s) in case of failure
+dsa_control
+HTTP Status: 200 - OK
+Response:
+Attempting to connect to https://114.110.144.39:4120/
+SSL handshake completed successfully - initiating command session.
+Connected with AES256-SHA256 to peer at 114.110.144.39
+Received a 'GetHostInfo' command from the manager.
+Received a 'GetHostInfo' command from the manager.
+Received a 'SetDSMCert' command from the manager.
+Received a 'SetAgentCredentials' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetInterfaces' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetAgentStatus' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetHostMetaData' command from the manager.
+Received a 'SetSecurityConfiguration' command from the manager.
+Received a 'GetAgentEvents' command from the manager.
+Received a 'GetAgentStatus' command from the manager.
+Command session completed.
+Recording is suspended. The output is C:\Users\Administrator\AppData\Roaming\Trend Micro\Deep Security Agent\installer\dsa_deploy.log.
+2:38:29 pm - DSA Deployment Finished
 
-### 삭제
-1. 모의 훈련 지원 신청 현황 목록 중 삭제를 원하는 대상을 선택하고 **삭제** 버튼을 클릭합니다.
-2. 모의 훈련 지원 삭제 약관 내용에 동의한 후, **확인** 버튼을 클릭합니다.
+C:\Users\Administrator>
+```
+### Start Service 
 
-## 트래픽 현황 확인
-- 트래픽 현황 탭에서 DDoS 장비를 통해 보호 대상으로 유입되는 모든 트래픽과 차단 트래픽에 대해 통계 정보를 확인할 수 있습니다. 
-  - 트래픽 통계 : DDoS 장비로 유입되는 트래픽 통계 정보를 표시합니다. 
-  - 차단 트래픽 통계 : DDoS 장비로 차단되는 트래픽 통계 정보를 표시합니다.
-  - 트래픽 로그는 최근 1달 데이터를 보관합니다.
+![vaccine_02_en_20210628.png](https://static.toastoven.net/prod_vaccine/vaccine_02_en_20210628.png)
 
-![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
+Click Refresh to find information of agents that are installed on the list of current status. 
+Click **Start Service** to start the service. 
 
-![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8E%E1%85%A1%E1%84%83%E1%85%A1%E1%86%AB%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8E%E1%85%A1%E1%84%83%E1%85%A1%E1%86%AB%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
+## Disabling Vaccine Agents 
 
-## 이벤트 현황 확인
-- 이벤트 현황 탭에서 이벤트 통계 정보와 상세 이벤트 현황을 확인할 수 있습니다.
-- 이벤트 로그는 최근 1년 데이터를 보관하며, 최대 1개월 단위로 조회할 수 있습니다.
+![vaccine_03_en_210628.png](https://static.toastoven.net/prod_vaccine/vaccine_03_en_210628.png)
 
-![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
+1\. Suspend Web Console Service 
 
-![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png)
+* Click **Close Service** to stop vaccine service. 
+### For Linux 
+* Access instance and delete vaccine agent. 
+    * CentOS: Execute rpm -e ds_agent 
+    * Debian/Ubuntu: Execute apt-get remove ds-agent 
 
+### For Windows 
+* Access instance and delete vaccine agent. 
+    * On Programs and Features, delete **Trend Micro Deep Security Agent**.
 
+## Applying Vaccine Service 
+
+### Guide for File Restoration 
+1\. File Restoration 
+
+* [Download](http://static.toastoven.net/prod_vaccine/QFAdminUtil_win32.zip) a restoration tool. 
+* Decompress QFAdminUtil_win32.zip, which is downloaded, on Windows. 
+* Execute QDecrypt.exe and open isolated files and restore them.  
+
+2\. Location of Isolated Files 
+
+* Linux : /var/opt/ds_agent/guest/0000-0000-0000/quarantined
+* Windows : C:\ProgramData\Trend Micro\AMSP\quarantine
+    * If you cannot find isolated files, click **Folder and Search Option** in **Computer** or **File Search**,  <br>deselect **Hide Protected Operating System Files** from the **View** tab, and select **Show Hidden Files, Folders and Drives**. 
+      
+### Guide for Agent Status Check
+* Linux
+    * sudo /opt/ds_agent/dsa_query -c GetAgentStatus | grep AgentStatus.agentState
+
+```
+[root@vaccine-test ~]# cd /opt/ds_agent/
+[root@vaccine-test ds_agent]# ./dsa_query -c GetAgentStatus | grep AgentStatus.agentState
+AgentStatus.agentState: green
+[root@vaccine-test ds_agent]#
+```
+
+* Windows
+    * Right-click Agent in the window tray and select Open Console > Confirm "(Running)" 
+    * ![windows_agent_status.png](https://static.toastoven.net/prod_vaccine/windows_agent_status.png)
+
+### Analysis Guide
+* **Collect the following files to request analysis from Customer Center when the agent is offline or inactive**
+    * Linux
+        * Execute /opt/ds_agent/dsa_control -d 
+        * Request for analysis of /var/opt/ds_agent/diag/random 10-digit numbers.zip file
+        * Check kernel information: sudo uname -a, Check OS information: Send the sudo cat /etc/\*release result
+    * Windows
+        * Execute C:\Program Files\Trend Micro\Deep Security Agent\dsa_control -d 
+        * Request for analysis of C:\Program Data\Trend Micro\Deep Security Agent\diag\random 10-digit numbers. zip file 
+* To analyze in more details, when an issue occurs, you may perform debugging first and request for more created files.
+
+### Delete Guide
+* For Linux
+    * Access the instance to delete the Vaccine Agent.
+       * CentOS: Execute rpm -e ds_agent
+       * Debian/Ubuntu: Execute apt-get remove ds-agent
+* For Windows
+    * Access the instance to delete the Vaccine Agent.
+       * Delete **Trend Micro Deep Security Agent** from Programs and Features.
+
+### User Guide for Image Replication 
+
+This guide regards to using vaccines for the creation of private image-based instances, including vaccine agents. 
+
+* Access instance, and install each script by creation or execution. 
+* Following the guide to enable vaccine agents, click Refresh and **Start Service** on the service page. 
+
+※ Caution 
+
+* Change Appkey of "group:Appkey" in the script, into that of **URL & Appkey** on the service page. 
+* For unwanted replication instances, it is recommended to delete installed agents so as not to waste unnecessary resources.   
+* After 'Start Service', the service status immediately enables 'Close Service', but vaccines start to operate in no more than 10 minutes, like the initial installation.  
+
+1\. Agent Script for Linux
+
+```
+touch /etc/use_dsa_with_iptables
+
+IP=`ifconfig eth0 | grep -w -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' | head -1`
+uuidInfo=`curl -s 169.254.169.254/openstack/latest/meta_data.json | python -c 'import json,sys;obj=json.load(sys.stdin);print (str(obj["uuid"])+":"+str("user_metadata.server_group" in obj["meta"]))'`
+/opt/ds_agent/dsa_control -r
+/opt/ds_agent/dsa_control -a dsm://114.110.144.39:4120/ "group:앱키" "displayname:$IP" "description:$uuidInfo"
+```
+
+2\. Agent Script for Windows 
+
+```
+$idx=(Get-WmiObject -Class Win32_IP4RouteTable | where { $_.destination -eq '0.0.0.0' -and $_.mask -eq '0.0.0.0'} | Sort-Object metric1).interfaceindex[0]
+
+$IP=((Get-WmiObject win32_networkadapterconfiguration | where { $_.interfaceindex -eq $idx} | select ipaddress)| findstr .*[0-9].\.).Split(",")[0].Split("{")[-1].Split("}")[0]
+$uuid=((invoke-webrequest -uri 169.254.169.254/openstack/latest/meta_data.json -UseBasicParsing).content | convertfrom-json).uuid
+$as="user_metadata.server_group" -in ((invoke-webrequest -uri 169.254.169.254/openstack/latest/meta_data.json -UseBasicParsing).content | convertfrom-json).meta.psobject.properties.name
+$uuidInfo=$uuid+":"+$as`
+
+& $Env:ProgramFiles"\Trend Micro\Deep Security Agent\dsa_control" -r
+& $Env:ProgramFiles"\Trend Micro\Deep Security Agent\dsa_control" -a dsm://114.110.144.39:4120/ "group:앱키" "displayname:$IP" "description:$uuidInfo"
+```
+※ Script must be created in batch file (.bat) for execution. 
+
+### User Guide for Auto Scale 
+Regarding the use of vaccines by auto scale, contact Customer Center.   
+
+## Operational Inquiries 
+
+### Inquiries 
+
+1\. Handling exceptions for particular files and folders 
+2\. Failure in agent installation 
+3\. Detecting vaccine events 
+4\. Wrong report of normal files and restorations 
+5\. Solutions to abnormal instance operations due to vaccine issues, and cause analysis 
+
+### To Inquire 
+
+1\. To Inquire: Go to **Customer Center > 1:1 Inquiry**
+2\. Business Hours: 9 to 6, weekdays
 
