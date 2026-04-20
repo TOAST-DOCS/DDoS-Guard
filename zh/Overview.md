@@ -9,28 +9,27 @@ There are two types of DDoS Guard Service: Basic and Managed.
 
 ## DDoS Guard features and benefits
 
-* Quickly detects and fends off DDoS attacks by inspecting all real-time inbound traffic. 
-* Provides optimized protection against DDoS attacks with response policy and traffic learning features tailored to each customer.
-* Effectively blocks large volume attacks or attacks on the application hierarchy with multifactor response filter and validation features.
-* Depending on the customer traits, you can provide DDoS response method (always/manual/automatic) to operate flexibly response system. 
-* Dedicated security control teams use constant monitoring (24 x 7) and status propagation to quickly identify the DDoS attack status. 
-* Provides periodic reports about DDoS detection and response daily/monthly. 
+* Analyze all incoming traffic in real-time to quickly detect and defend against DDoS attacks. Additionally, when overseas-originated DDoS attacks are difficult to defend against, country-based defense is possible under customer consultation.
+* Learn traffic based on customer environment and apply optimized response policies to effectively mitigate and defend against DDoS attacks.
+* Provide DDoS response methods (always-on/automatic) according to the customer service’s features to flexibly operate response systems.
+* The dedicated security monitoring teams can quickly identify DDoS attack situations through 24-hour, 365-day (24 x 365) monitoring and the propagation of situations.
+* Operations for customer security can be enhanced through daily/monthly reports on DDoS attack detection and response.
 
 ## DDoS Guard key features
 
-### Basic
+### Basic service (free)
 
-* Monitors inbound traffic to cloud in real time
-* Responds to DDoS attacks to protect internal resources
+* Monitor all traffic incoming to cloud in real time and protect NHN Cloud infrastructure based on common thresholds.
+* Common policies are integrated thresholds applied to various customer services. And it cannot guarantee failure situations, such as availability for customer services, when DDoS attacks occur, so a Managed service (paid) is recommended.
 
-### Managed
+### Managed service (paid)
 
-* Manages the customized DDoS policies
-* Sets the threshold based on the traffic learning
-* Defends applications from tiered attacks through validation
-* Allows automatic or manual response depending on the nature of the service
-* Propagates detailed information about DDoS attacks
+* Customer-customized DDoS policy management and operations can secure availability and stability of target services and defend against threats in advance.
+* Defend against DDoS attacks through optimized threshold settings and validation based on traffic learning.
+* Always-on/automatic defense policies can be flexibly configured according to characteristics such as customer service environments.
+* The encrypted traffic supports L4 attack mitigation.
+* Rapid response is possible through the propagation of the detailed DDoS attack information.
 
 ### Report
 
-* Daily/monthly report
+* Support effective security threat management by providing daily/monthly reports.
