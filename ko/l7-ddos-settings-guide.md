@@ -123,7 +123,7 @@
 | 5 | Keep-Alive 제한 | IdleStateHandler | 유휴 세션 이벤트 발생 | 필수 | `new IdleStateHandler(10, 10, 10)` | 10초 동안 이벤트 발생하지 않으면 이벤트 발생(읽기/쓰기/읽기&쓰기) |
 | 6 | 요청 시간 제한 | ReadTimeoutHandler / WriteTimeoutHandler | Slowloris 대응 | 필수 | `new ReadTimeoutHandler(10)`<BR>`new WriteTimeoutHandler(10)` |  |
 | 7 | HTTP Method 제한 | ChannelInboundHandler | 허용 메서드만 처리 | 권고 | `if (!(request.method().equals(HttpMethod.GET) || request.method().equals(HttpMethod.POST) || request.method().equals(HttpMethod.HEAD))) {`<BR> `ctx.close();`<BR>`return;<BR>}` | GET,POST,HEAD Method만 허용 |
-| 8 | User-Agent 차단 | Handler에서 Header 검사 | 스캐너/봇 차단 | 권고 | `String ua = request.headers().get("User-Agent");`<BR>`if (ua != null && ua.matches(".(masscan|curl|python|nmap).")) {`<BR>` ctx.close();`<BR>` return;`<BR>`}` | masscan/curl/python/nmap 패턴 탐지 |
+| 8 | User-Agent 차단 | Handler에서 Header 검사 | 스캐너/봇 차단 | 권고 | `String ua = request.headers().get("User-Agent");`<BR> `if (ua != null && ua.matches(\".(masscan|curl|python|nmap).\")) {`<BR>` ctx.close();`<BR>` return;`<BR>`}` | masscan/curl/python/nmap 패턴 탐지 |
 | 9 | 상태 모니터링 | Micrometer / Prometheus | TPS, 연결수 모니터링 | 권고 |  |  |
 | 10 | 캐시 설정 | Caffeine / Redis | 백엔드 부하 감소 | 권고 |  |  |
 
