@@ -1,5 +1,11 @@
 ## Security > DDoS Guard > Release Note
 
+### July 28, 2026
+
+#### Feature Updates
+
+* [Console] Removed the "Manual Defense" option from the response mode selection when creating or modifying a Zone.
+
 ### March 25, 2025
 
 #### Feature Updates
