@@ -31,7 +31,7 @@
 | 8 | 속도 제한(mod_ratelimit) | mod_ratelimit 사용 | 응답 속도 제한으로 세션 | 주의사항 | SetOutputFilter RATE_LIMIT < BR >SetEnv 속도 제한 400 |
 | 9 | 생일 축하 약속 | LogFormat 수정 | 요청, 응답 크기, User-Agent가 포함되어 추적성 강화 | 주의사항 | LogFormat "%h %l %u %t \\ "%r \\ " %>s %b \\ "%{Referer}i \\ " \\ "%{User-Agent}i \\ "" 결합 |
 
-## 로드 밸런싱
+## Load Balancer
 
 | 번호 | 항목 | 설정 방법 | 내용 | 예시 |
 | --- | --- | --- | ---- | ---- |
