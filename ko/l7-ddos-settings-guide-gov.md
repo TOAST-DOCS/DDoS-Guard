@@ -17,7 +17,7 @@
 | 9 | 상태 모니터링 | stub_status 설정 | 매주 요청/세션 수확인(운영 점검용) | 주의사항 | 위치 /nginx_status {< BR > stub_status;< BR > 127.0.0.1 허용;< BR > 모두 거부; < BR >} |
 | 10 | 캐싱 설정 | Proxy_cache 설정 | 같은 요청 캐싱으로 백엔드의 설명 | 주의사항 | Proxy_cache_path /tmp/nginx_cache 레벨=1:2key_zone=my_cache:10m; < BR >위치 / {< BR > Proxy_cache my_cache;< BR > Proxy_cache_use_stale 오류 시간 초과 업데이트 중; < BR >} |
 
-## 아파치
+## Apache
 
 | 번호 | 항목 | 설정 방법 | 내용 | 우선 순위 | 예시 |
 | --- | --- | --- | ---- | ---- | ---- |
