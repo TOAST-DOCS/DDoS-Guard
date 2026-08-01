@@ -1,8 +1,12 @@
-## Security > DDoS Guard > L7 DDoS 보안 설정 가이드
+<!-- pre-align:aligned sig=4aaf1d63e79e -->
+
+<a id="security-ddos-guard-l7-ddos-security-configuration-guide"></a>
+## Security > DDoS Guard > L7 DDoS 보안 설정 가이드 { #security-ddos-guard-l7-ddos-security-configuration-guide }
 
 여기에서는 L7 DDoS 공격을 효과적으로 대응하기 위한 보안 설정 방법을 설명합니다.
 
-## Nginx
+<a id="nginx"></a>
+## Nginx { #nginx }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 우선순위 | 예시 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -17,7 +21,8 @@
 | 9 | 상태 모니터링 | stub_status 설정 | 실시간 요청/세션 수 확인(운영 점검용) | 권고 | location /nginx_status {<BR>   stub_status;<BR>   allow 127.0.0.1;<BR>   deny all; <BR>} |
 | 10 | 캐싱 설정 | proxy_cache 설정 | 동일 요청 캐싱으로 백엔드 부하 감소 | 권고 | proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m; <BR>location / {<BR>   proxy_cache my_cache;<BR>   proxy_cache_use_stale error timeout updating; <BR>} |
 
-## Apache
+<a id="apache"></a>
+## Apache { #apache }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 우선순위 | 예시 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -31,7 +36,8 @@
 | 8 | 요청 속도 제한(mod_ratelimit) | mod_ratelimit 사용 | 응답 전송 속도 제한으로 과도한 요청 억제 | 권고 | SetOutputFilter RATE_LIMIT <BR>SetEnv rate-limit 400 |
 | 9 | 로그 포맷 강화 | LogFormat 수정 | 요청, 응답 크기, User-Agent 포함해 추적성 강화 | 권고 | LogFormat "%h %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" combined |
 
-## Load Balancer
+<a id="load-balancer"></a>
+## Load Balancer { #load-balancer }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 예시 |
 | --- | --- | --- | ---- | ---- |
