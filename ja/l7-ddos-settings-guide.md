@@ -1,8 +1,12 @@
-## Security > DDoS Guard > L7 DDoSセキュリティ設定ガイド
+<!-- pre-align:aligned sig=4aaf1d63e79e -->
+
+<a id="security-ddos-guard-l7-ddos-security-configuration-guide"></a>
+## Security > DDoS Guard > L7 DDoSセキュリティ設定ガイド { #security-ddos-guard-l7-ddos-security-configuration-guide }
 
 ここではL7 DDoS攻撃に効果的に対応するためのセキュリティ設定方法について説明します。
 
-## Nginx
+<a id="nginx"></a>
+## Nginx { #nginx }
 
 | 番号 | 項目 | 設定方法 | 内容 | 優先順位 | 例 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -17,7 +21,8 @@
 | 9 | ステータスモニタリング | stub_status設定 | リアルタイムリクエスト/セッション数確認(運営点検用) | 推奨 | location /nginx_status {<BR>  stub_status;<BR>  allow 127.0.0.1;<BR>  deny all;<BR>} |
 | 10 | キャッシュ設定 | proxy_cache設定 | 同一リクエストのキャッシュでバックエンド負荷を軽減 | 推奨 | proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m;<BR>location / {<BR>  proxy_cache my_cache;<BR>  proxy_cache_use_stale error timeout updating;<BR>} |
 
-## Apache
+<a id="apache"></a>
+## Apache { #apache }
 
 | 番号 | 項目 | 設定方法 | 内容 | 優先順位 | 例 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -31,7 +36,8 @@
 | 8 | リクエスト速度制限(mod_ratelimit) | mod_ratelimit使用 | レスポンス転送速度制限により過度なリクエストを抑制 | 推奨 | SetOutputFilter RATE_LIMIT<BR>SetEnv rate-limit 400 |
 | 9 | ログフォーマット強化 | LogFormat修正 | リクエスト、レスポンスサイズ、User-Agentを含めて追跡性を強化 | 推奨 | LogFormat "%h %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" combined |
 
-## Load Balancer
+<a id="load-balancer"></a>
+## Load Balancer { #load-balancer }
 
 | 番号 | 項目 | 設定方法 | 内容 | 例 |
 | --- | --- | --- | ---- | ---- |

@@ -1,8 +1,12 @@
-## Security > DDoS Guard > L7 DDoS Security Configuration Guide
+<!-- pre-align:aligned sig=4aaf1d63e79e -->
+
+<a id="security-ddos-guard-l7-ddos-security-configuration-guide"></a>
+## Security > DDoS Guard > L7 DDoS Security Configuration Guide { #security-ddos-guard-l7-ddos-security-configuration-guide }
 
 This guide describes security configuration methods to effectively mitigate L7 DDoS attacks.
 
-## Nginx
+<a id="nginx"></a>
+## Nginx { #nginx }
 
 | Number | Item | How to configure | Content | Priority | Example |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -17,7 +21,8 @@ This guide describes security configuration methods to effectively mitigate L7 D
 | 9 | Status monitoring | Set stub_status | Check the number of requests/sessions in real time (for operational maintenance) | Recommended | location /nginx_status {<BR>  stub_status;<BR>  allow 127.0.0.1;<BR>  deny all;<BR>} |
 | 10 | Caching settings | Proxy cache settings | Reducing backend load by caching identical requests | Recommendation | proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m;<BR>location / {<BR>  proxy_cache my_cache;<BR>  proxy_cache_use_stale error timeout updating;<BR>} |
 
-## Apache
+<a id="apache"></a>
+## Apache { #apache }
 
 | Number | Item | How to configure | Content | Priority | Example |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -31,7 +36,8 @@ This guide describes security configuration methods to effectively mitigate L7 D
 | 8 | Request rate limit (mod_ratelimit) | Using mod_ratelimit | Limiting response rates to prevent excessive requests | Recommended | SetOutputFilter RATE_LIMIT<BR>SetEnv rate-limit 400 |
 | 9 | Enhanced log format | Modified LogFormat | Enhanced traceability, including request and response sizes and User-Agent | Recommended | LogFormat "%h %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" combined |
 
-## Load Balancer
+<a id="load-balancer"></a>
+## Load Balancer { #load-balancer }
 
 | Number | Item | How to configure | Content | Example |
 | --- | --- | --- | ---- | ---- |
