@@ -1,4 +1,7 @@
-## Security > DDoS Guard > 概要
+<!-- pre-align:aligned sig=82891f1ae196 -->
+
+<a id="security-ddos-guard-overview"></a>
+## Security > DDoS Guard > 概要 { #security-ddos-guard-overview }
 
 DDoS Guardは、外部DDoS攻撃をリアルタイムに検知し、遮断してお客様のサービスを保護するサービスです。
 
@@ -7,7 +10,8 @@ DDoS GuardサービスにはBasicとManagedの2つのタイプがあります。
 - Basic：一般的なネットワークレベルのDDoS攻撃からクラウド内のサービスを保護し、NHNクラウドのすべてのお客様に無料で提供されるサービスです。
 - Managed：パーソナライズ型の購読サービスで、さらに向上した保護機能を提供します。精巧なアプリケーション型のDDoS攻撃対応、サービス特性に応じたトラフィック学習と対応方法の選択、リアルタイム攻撃情報配信など、より高い可用性を要求するクラウドのお客様に特化した保護サービスを提供します。
 
-## DDoS Guardの特徴
+<a id="ddos-guard-features-and-benefits"></a>
+## DDoS Guardの特徴 { #ddos-guard-features-and-benefits }
 
 * リアルタイムで流入するすべてのトラフィックを分析してDDoS攻撃を迅速に検知・防御する。また、海外からのDDoS攻撃に対して防御が困難な場合は、顧客との協議を通じて国単位の防御が可能です。
 * 顧客環境に基づいてトラフィックを学習し、最適化された対応ポリシーを適用することで、DDoS攻撃を効果的に緩和・防御します。
@@ -15,14 +19,17 @@ DDoS GuardサービスにはBasicとManagedの2つのタイプがあります。
 * 専任のセキュリティ監視チームが24時間365日体制でモニタリング及び状況伝達を行い、DDoS攻撃の状況を迅速に把握可能です。
 * DDoS攻撃検知と対応に関する日間/月間レポートを通じて、顧客のセキュリティ運用を強化できます。
 
-## DDoS Guardの主な機能
+<a id="ddos-guard-key-features"></a>
+## DDoS Guardの主な機能 { #ddos-guard-key-features }
 
-### Basicサービス(無料)
+<a id="basic-service-free"></a>
+### Basicサービス(無料) { #basic-service-free }
 
 * クラウドに流入する全トラフィックをリアルタイムでモニタリングし、共通のしきい値に基づいてNHN Cloudインフラを保護します。
 * 共通ポリシーは、様々な顧客サービスに適用される統合しきい値であり、DDoS攻撃発生時に顧客サービスの可用性など障害状況を保証できないため、Managedサービス（有料）の利用を推奨します。
 
-### Managedサービス(有料)
+<a id="managed-service-paid"></a>
+### Managedサービス(有料) { #managed-service-paid }
 
 * 顧客に合わせたDDoSポリシーの管理及び運用により、対象サービスの可用性と安定性を確保し、事前に脅威を防ぐことができます。
 * トラフィック学習に基づいた最適なしきい値の設定と有効性検証により、DDoS攻撃を防ぎます。
@@ -30,6 +37,7 @@ DDoS GuardサービスにはBasicとManagedの2つのタイプがあります。
 * 暗号化されたトラフィックは、L4攻撃への対応をサポートします。
 * DDoSの詳細な攻撃情報の伝達により、迅速な対応が可能です。
 
-### レポート
+<a id="report"></a>
+### レポート { #report }
 
 * 日間/月間レポート提供により、セキュリティ脅威を効果的に管理できるようサポートします。
