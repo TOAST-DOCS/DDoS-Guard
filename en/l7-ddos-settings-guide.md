@@ -7,7 +7,8 @@
 
 This document explains how to configure security settings to effectively respond to L7 DDoS attacks.
 
-## 1. Background
+<a id="background"></a>
+## 1. Background { #background }
 
 * Increasing L7 Slow DDoS attacks
     * Attacks such as Slowloris and Slow Read, which occupy application-layer sessions for extended periods rather than consuming network bandwidth, occur frequently.
@@ -15,7 +16,8 @@ This document explains how to configure security settings to effectively respond
 * Increasing detection difficulty
     * Because these attacks are disguised as normal HTTP requests within HTTPS-encrypted traffic, simple L3/L4 threshold-based Anti-DDoS devices alone have limited effectiveness.
 
-## 2. Purpose
+<a id="purpose"></a>
+## 2. Purpose { #purpose }
 
 * Establish a comprehensive defense system
     * Establish multi-layer security policies covering the server, network, and application layers.
@@ -24,7 +26,8 @@ This document explains how to configure security settings to effectively respond
 * Ensure service availability
     * Maintain normal service by managing appropriate session maintenance times and maximum connection counts.
 
-## 3. Security Measures
+<a id="security-measures"></a>
+## 3. Security Measures { #security-measures }
 
 * Web server hardening
     * Minimize resource occupancy caused by abnormal connections by optimizing session settings such as KeepAliveTimeout, RequestReadTimeout, and client_body_timeout.
@@ -33,9 +36,11 @@ This document explains how to configure security settings to effectively respond
     * Country criteria: In the event of an emergency, block all overseas source IP ranges except for domestic and major service countries (e.g., Korea, Japan).
     * Recovery procedure: After confirming a reduction in attack traffic and the end of the incident, lift the country-based blocking policy to restore normal service.
 
-## 4. Security Checklist
+<a id="security-checklist"></a>
+## 4. Security Checklist { #security-checklist }
 
-### Nginx
+<a id="nginx"></a>
+### Nginx { #nginx }
 
 | Number | Category | Item | Checked | Notes |
 | --- | --- | --- | ---- | ---- |
@@ -51,7 +56,8 @@ This document explains how to configure security settings to effectively respond
 | 10 | System | Is the status monitoring configured? |  |  |
 | 11 | System | Is the caching settings configured? |  |  |
 
-### Apache
+<a id="apache"></a>
+### Apache { #apache }
 
 | Number | Category | Item | Checked | Notes |
 | --- | --- | --- | ---- | ---- |
@@ -66,7 +72,8 @@ This document explains how to configure security settings to effectively respond
 | 9 | System | Is the request rate limit (mod_ratelimit) configured? |  |  |
 | 10 | System | Is the enhanced log format configured? |  |  |
 
-### Netty
+<a id="netty"></a>
+### Netty { #netty }
 
 | Number | Category | Item | Checked | Notes |
 | --- | --- | --- | ---- | ---- |
@@ -82,11 +89,13 @@ This document explains how to configure security settings to effectively respond
 | 10 | System | Is status monitoring and metrics collection enabled? |  |  |
 | 11 | System | Is cache or response optimization applied? |  |  |
 
-## 5. Security Configuration Guide
+<a id="security-configuration-guide"></a>
+## 5. Security Configuration Guide { #security-configuration-guide }
 
 When configuring security settings, you must consider your environment to minimize web service disruptions.
 
-### Nginx
+<a id="security-configuration-guide-nginx"></a>
+### Nginx { #security-configuration-guide-nginx }
 
 | Number | Item | How to configure | Content | Priority | Example |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -101,7 +110,8 @@ When configuring security settings, you must consider your environment to minimi
 | 9 | Status monitoring | Set stub_status | Check the number of requests/sessions in real time (for operational maintenance) | Recommended | location /nginx_status {<BR>   stub_status;<BR>   allow 127.0.0.1;<BR>   deny all; <BR>} |
 | 10 | Caching settings | Proxy cache settings | Reducing backend load by caching identical requests | Recommended | proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m; <BR>location / {<BR>   proxy_cache my_cache;<BR>   proxy_cache_use_stale error timeout updating; <BR>} |
 
-### Apache
+<a id="security-configuration-guide-apache"></a>
+### Apache { #security-configuration-guide-apache }
 
 | Number | Item | How to configure | Content | Priority | Example |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -115,7 +125,8 @@ When configuring security settings, you must consider your environment to minimi
 | 8 | Request rate limit (mod_ratelimit) | Using mod_ratelimit | Limiting response rates to prevent excessive requests | Recommended | SetOutputFilter RATE_LIMIT <BR>SetEnv rate-limit 400 |
 | 9 | Enhanced log format | Modified LogFormat | Enhanced traceability, including request and response sizes and User-Agent | Recommended | LogFormat "%h %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" combined |
 
-### Netty
+<a id="security-configuration-guide-netty"></a>
+### Netty { #security-configuration-guide-netty }
 
 | Number | Item | How to configure | Content | Priority | Example | Notes |
 | --- | --- | --- | ---- | ---- | ---- | ---- |
@@ -130,7 +141,8 @@ When configuring security settings, you must consider your environment to minimi
 | 9 | Status monitoring | Micrometer / Prometheus | Monitor TPS and connection count | Recommended |  |  |
 | 10 | Cache settings | Caffeine / Redis | Reduce backend load | Recommended |  |  |
 
-### Load Balancer
+<a id="load-balancer"></a>
+### Load Balancer { #load-balancer }
 
 | Number | Item | How to configure | Content | Example | Notes |
 | --- | --- | --- | ---- | ---- | ---- |
