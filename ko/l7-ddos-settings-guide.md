@@ -115,7 +115,7 @@
 
 ### Netty
 
-| 번호 | 항목 | 설정 방법 | 내용 | 우선 순위 | 예시 | 비고 |
+| 번호 | 항목 | 설정 방법 | 내용 | 우선순위 | 예시 | 비고 |
 | --- | --- | --- | ---- | ---- | ---- | ---- |
 | 1 | 요청 속도 제한(Rate Limit) | ChannelHandler / Redis / Guava RateLimiter | IP 기반 요청 수 제한 | 필수 | `SimpleRateTracker(5, 10)` | 초당 5개 ~ 15개까지 허용 |
 | 2 | 동시 연결 제한(Connection Limit) | ChannelGroup / Atomic Counter | IP별 동시 연결 제한 | 필수 | `MAX_CONN_PER_IP = 10` | IP당 동시 연결 수 10개 제한 |
