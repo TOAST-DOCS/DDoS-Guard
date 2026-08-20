@@ -7,7 +7,8 @@
 
 ここでは、L7 DDoS攻撃に効果的に対応するためのセキュリティ設定方法を説明します。
 
-## 1. 背景
+<a id="background"></a>
+## 1. 背景 { #background }
 
 * L7 Slow DDoS攻撃の継続的な増加
     * Slowloris、Slow Readなど、ネットワーク帯域幅ではなくアプリケーション層のセッションを長時間占有する攻撃が頻繁に発生しています。
@@ -15,7 +16,8 @@
 * 検出難易度の上昇
     * HTTPSの暗号化トラフィック内に正常なHTTPリクエストを装って流入するため、単純な L3/L4 しきい値 (Threshold) ベースのDDoS装置だけでは対応に限界があります。
 
-## 2. 目的
+<a id="purpose"></a>
+## 2. 目的 { #purpose }
 
 * 総合的な防御体制の構築
     * サーバー、ネットワーク、アプリケーションなど、多層セキュリティポリシーを策定します。
@@ -24,7 +26,8 @@
 * サービスの可用性 (Availability) の確保
     * 適切なセッション維持時間および最大接続数の管理により、正常なサービスの維持を図ります。
 
-## 3. セキュリティ対策
+<a id="security-measures"></a>
+## 3. セキュリティ対策 { #security-measures }
 
 * Webサーバーハードニング (Web Server Hardening)
     * KeepAliveTimeout、RequestReadTimeout、client_body_timeout などのセッション設定を最適化し、異常な接続によるリソース占有を最小化します。
@@ -33,9 +36,11 @@
     * 国別基準: 緊急事態発生時に、国内および主要サービス提供国 (例: 韓国、日本など) を除く、海外送信元 IP 帯域全体を遮断します。
     * 復旧手順: 攻撃トラフィックの減少および事態終息を確認した後、国別遮断ポリシーを解除して正常なサービス状態に復元します。
 
-## 4. セキュリティチェックリスト
+<a id="security-checklist"></a>
+## 4. セキュリティチェックリスト { #security-checklist }
 
-### Nginx
+<a id="nginx"></a>
+### Nginx { #nginx }
 
 | 番号 | 区分 | 項目 | 確認 | 備考 |
 | --- | --- | --- | ---- | ---- |
@@ -51,7 +56,8 @@
 | 10 | システム | ステータスモニタリングが設定されているか？ |  |  |
 | 11 | システム | キャッシュ設定がされているか？ |  |  |
 
-### Apache
+<a id="apache"></a>
+### Apache { #apache }
 
 | 番号 | 区分 | 項目 | 確認 | 備考 |
 | --- | --- | --- | ---- | ---- |
@@ -66,7 +72,8 @@
 | 9 | システム | リクエスト速度制限 (mod_ratelimit) が設定されているか？ |  |  |
 | 10 | システム | ログフォーマット強化が設定されているか？ |  |  |
 
-### Netty
+<a id="netty"></a>
+### Netty { #netty }
 
 | 番号 | 区分 | 項目 | 確認 | 備考 |
 | --- | --- | --- | ---- | ---- |
@@ -82,11 +89,13 @@
 | 10 | システム | ステータスモニタリングおよびMetrics収集が行われているか？ |  |  |
 | 11 | システム | キャッシュまたはレスポンス最適化の適用有無 |  |  |
 
-## 5. セキュリティ設定ガイド
+<a id="security-configuration-guide"></a>
+## 5. セキュリティ設定ガイド { #security-configuration-guide }
 
 セキュリティ設定時にWebサービスの障害を最小化するには、環境を考慮する必要があります。
 
-### Nginx
+<a id="security-configuration-guide-nginx"></a>
+### Nginx { #security-configuration-guide-nginx }
 
 | 番号 | 項目 | 設定方法 | 内容 | 優先度 | 例 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -101,7 +110,8 @@
 | 9 | ステータスモニタリング | stub_status の設定 | リアルタイムのリクエスト数・セッション数を確認 (運用点検用) | 推奨 | location /nginx_status {<BR>   stub_status;<BR>   allow 127.0.0.1;<BR>   deny all; <BR>} |
 | 10 | キャッシュ設定 | proxy_cache の設定 | 同一リクエストのキャッシュによりバックエンドの負荷を軽減 | 推奨 | proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m; <BR>location / {<BR>   proxy_cache my_cache;<BR>   proxy_cache_use_stale error timeout updating; <BR>} |
 
-### Apache
+<a id="security-configuration-guide-apache"></a>
+### Apache { #security-configuration-guide-apache }
 
 | 番号 | 項目 | 設定方法 | 内容 | 優先度 | 例 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -115,7 +125,8 @@
 | 8 | リクエスト速度制限 (mod_ratelimit) | mod_ratelimit を使用 | レスポンス送信速度を制限することで過剰なリクエストを抑制 | 推奨 | SetOutputFilter RATE_LIMIT <BR>SetEnv rate-limit 400 |
 | 9 | ログフォーマット強化 | LogFormat の修正 | リクエスト、レスポンスサイズ、User-Agent を含めて追跡性を強化 | 推奨 | LogFormat "%h %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" combined |
 
-### Netty
+<a id="security-configuration-guide-netty"></a>
+### Netty { #security-configuration-guide-netty }
 
 | 番号 | 項目 | 設定方法 | 内容 | 優先度 | 例 | 備考 |
 | --- | --- | --- | ---- | ---- | ---- | ---- |
@@ -130,7 +141,8 @@
 | 9 | ステータスモニタリング | Micrometer / Prometheus | TPS、接続数のモニタリング | 推奨 |  |  |
 | 10 | キャッシュ設定 | Caffeine / Redis | バックエンドの負荷を軽減 | 推奨 |  |  |
 
-### Load Balancer
+<a id="load-balancer"></a>
+### Load Balancer { #load-balancer }
 
 | 番号 | 項目 | 設定方法 | 内容 | 例 | 備考 |
 | --- | --- | --- | ---- | ---- | ---- |
