@@ -21,7 +21,7 @@
 
 ## 3. 보안 대책
 
-* 웹 서버 하드닝 (Web Server Hardening)
+* 웹 서버 하드닝(Web Server Hardening)
     * KeepAliveTimeout, RequestReadTimeout, client_body_timeout 등 세션 설정을 최적화하여 비정상 연결로 인한 리소스 점유를 최소화합니다.
 * Anti-DDoS 솔루션 국가 기반 선 차단 설정
     * 차단 기준: L7 DDoS 공격으로 인해 웹 서비스 지연 또는 장애(접근 불가)가 발생할 경우 적용합니다.
