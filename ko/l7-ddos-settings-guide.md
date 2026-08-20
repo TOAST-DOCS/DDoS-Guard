@@ -1,4 +1,4 @@
-<!-- pre-align:aligned sig=4aaf1d63e79e -->
+<!-- pre-align:aligned sig=de8ccb25881e -->
 
 <a id="security-ddos-guard-l7-ddos-security-configuration-guide"></a>
 ## Security > DDoS Guard > L7 DDoS 보안 설정 가이드 { #security-ddos-guard-l7-ddos-security-configuration-guide }
