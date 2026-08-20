@@ -5,7 +5,8 @@
 
 여기에서는 L7 DDoS 공격을 효과적으로 대응하기 위한 보안 설정 방법을 설명합니다.
 
-## 1. 배경
+<a id="background"></a>
+## 1. 배경 { #background }
 
 * L7 Slow DDoS 공격 지속 증가
     * Slowloris, Slow Read 등 네트워크 대역폭이 아닌 애플리케이션 계층의 세션을 장시간 점유하는 공격이 빈번히 발생합니다.
@@ -13,7 +14,8 @@
 * 탐지 난이도 상향
     * HTTPS 암호화 트래픽 내에 정상적인 HTTP 요청처럼 위장하여 유입되므로, 단순 L3/L4 임계치(Threshold) 기반 Anti-DDoS 장비만으로는 대응에 한계가 있습니다.
 
-## 2. 목적
+<a id="purpose"></a>
+## 2. 목적 { #purpose }
 
 * 종합적 방어 체계 수립
     * 서버, 네트워크, 애플리케이션 등 다중 계층 보안 정책을 수립합니다.
@@ -22,7 +24,8 @@
 * 서비스 가용성(Availability) 확보
     * 적절한 세션 유지 시간 및 최대 연결 수 관리를 통해 정상 서비스 유지를 도모합니다. 
 
-## 3. 보안 대책
+<a id="security-measures"></a>
+## 3. 보안 대책 { #security-measures }
 
 * 웹 서버 하드닝(Web Server Hardening)
     * KeepAliveTimeout, RequestReadTimeout, client_body_timeout 등 세션 설정을 최적화하여 비정상 연결로 인한 리소스 점유를 최소화합니다.
@@ -31,9 +34,11 @@
     * 국가 기준: 긴급 상황 발생 시 국내 및 주요 서비스 국가(예: 한국, 일본 등)를 제외한 해외 출발지 IP 대역 전체를 차단합니다.
     * 복구 절차: 공격 트래픽 감소 및 상황 종료를 확인한 후, 국가 차단 정책을 해제하여 정상 서비스 상태로 원복합니다.
 
-## 4. 보안 점검 리스트 
+<a id="security-checklist"></a>
+## 4. 보안 점검 리스트 { #security-checklist }
 
-### Nginx
+<a id="nginx"></a>
+### Nginx { #nginx }
 
 | 번호 | 구분 | 항목 | 확인 여부 | 비고 |
 | --- | --- | --- | ---- | ---- |
@@ -49,7 +54,8 @@
 | 10 | 시스템 | 상태 모니터링 설정이 되었는지? |  |  |
 | 11 | 시스템 | 캐싱 설정이 되었는지? |  |  |
 
-### Apache
+<a id="apache"></a>
+### Apache { #apache }
 
 | 번호 | 구분 | 항목 | 확인 여부 | 비고 |
 | --- | --- | --- | ---- | ---- |
@@ -64,7 +70,8 @@
 | 9 | 시스템 | 요청 속도 제한(mod_ratelimit) 설정이 되었는지? |  |  |
 | 10 | 시스템 | 로그 포맷 강화 설정이 되었는지? |  |  |
 
-### Netty
+<a id="netty"></a>
+### Netty { #netty }
 
 | 번호 | 구분 | 항목 | 확인 여부 | 비고 |
 | --- | --- | --- | ---- | ---- |
@@ -80,11 +87,13 @@
 | 10 | 시스템 | 상태 모니터링 및 Metrics 수집이 되는가? |  |  |
 | 11 | 시스템 | 캐시 또는 응답 최적화 적용 여부 |  |  |
 
-## 5. 보안 설정 가이드
+<a id="security-configuration-guide"></a>
+## 5. 보안 설정 가이드 { #security-configuration-guide }
 
 보안 설정 시 웹 서비스 장애를 최소화하려면 환경을 고려해야 합니다.
 
-### Nginx
+<a id="security-configuration-guide-nginx"></a>
+### Nginx { #security-configuration-guide-nginx }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 우선순위 | 예시 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -99,7 +108,8 @@
 | 9 | 상태 모니터링 | stub_status 설정 | 실시간 요청/세션 수 확인(운영 점검용) | 권고 | location /nginx_status {<BR>   stub_status;<BR>   allow 127.0.0.1;<BR>   deny all; <BR>} |
 | 10 | 캐싱 설정 | proxy_cache 설정 | 동일 요청 캐싱으로 백엔드 부하 감소 | 권고 | proxy_cache_path /tmp/nginx_cache levels=1:2 keys_zone=my_cache:10m; <BR>location / {<BR>   proxy_cache my_cache;<BR>   proxy_cache_use_stale error timeout updating; <BR>} |
 
-### Apache
+<a id="security-configuration-guide-apache"></a>
+### Apache { #security-configuration-guide-apache }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 우선순위 | 예시 |
 | --- | --- | --- | ---- | ---- | ---- |
@@ -113,7 +123,8 @@
 | 8 | 요청 속도 제한(mod_ratelimit) | mod_ratelimit 사용 | 응답 전송 속도 제한으로 과도한 요청 억제 | 권고 | SetOutputFilter RATE_LIMIT <BR>SetEnv rate-limit 400 |
 | 9 | 로그 포맷 강화 | LogFormat 수정 | 요청, 응답 크기, User-Agent 포함해 추적성 강화 | 권고 | LogFormat "%h %l %u %t \\"%r\\" %>s %b \\"%{Referer}i\\" \\"%{User-Agent}i\\"" combined |
 
-### Netty
+<a id="security-configuration-guide-netty"></a>
+### Netty { #security-configuration-guide-netty }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 우선순위 | 예시 | 비고 |
 | --- | --- | --- | ---- | ---- | ---- | ---- |
@@ -128,7 +139,8 @@
 | 9 | 상태 모니터링 | Micrometer / Prometheus | TPS, 연결수 모니터링 | 권고 |  |  |
 | 10 | 캐시 설정 | Caffeine / Redis | 백엔드 부하 감소 | 권고 |  |  |
 
-### Load Balancer
+<a id="load-balancer"></a>
+### Load Balancer { #load-balancer }
 
 | 번호 | 항목 | 설정 방법 | 내용 | 예시 | 비고 |
 | --- | --- | --- | ---- | ---- | ---- |
