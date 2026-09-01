@@ -1,18 +1,7 @@
 ## Security > DDoS Guard > 릴리스 노트
 
-### 2026. 07. 28.
+{% include-markdown './release-notes-gov/2026.md' %}
 
-#### 기능 변경
-* [Console] Zone 신청/변경 시 대응 모드 선택 항목 중 "수동 방어" 제거
+{% include-markdown './release-notes-gov/2025.md' %}
 
-### 2025. 03. 25.
-
-#### 기능 개선
-* [Console] 추가
-	* 트래픽 현황, 이벤트 현황, 서비스 신청 현황, 변경 이력
-
-#### 요금 개선
-* 홈페이지 요금 노출 및 구간 할인 적용
-
-### 2022. 06. 30.
-* DDoS Guard 서비스 출시
+{% include-markdown './release-notes-gov/2022.md' %}
