@@ -70,9 +70,9 @@ To use the DDoS Guard service, log in to the NHN Cloud console and activate it b
   - Blocked traffic statistics: display statistics on traffic blocked by DDoS devices.
   - Traffic logs store data for the past month.
 
-![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
+![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](../static/images/트래픽현황_트래픽통계.png)
 
-![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8E%E1%85%A1%E1%84%83%E1%85%A1%E1%86%AB%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8E%E1%85%A1%E1%84%83%E1%85%A1%E1%86%AB%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
+![%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8E%E1%85%A1%E1%84%83%E1%85%A1%E1%86%AB%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%91%E1%85%B5%E1%86%A8%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](../static/images/트래픽현황_차단트래픽통계.png)
 
 <a id="check-event-status"></a>
 ## Check Event Status { #check-event-status }
@@ -80,6 +80,6 @@ To use the DDoS Guard service, log in to the NHN Cloud console and activate it b
 - You can view the event statistics information and detailed event status from the event status tab.
 - Event log data for the past year is stored and can be viewed in units of up to one month.
 
-![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png)
+![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8.png](../static/images/이벤트현황_통계.png)
 
-![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_ddosguard/%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png)
+![%E1%84%8B%E1%85%B5%E1%84%87%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B3%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%AA%E1%86%BC_%E1%84%8C%E1%85%A9%E1%84%92%E1%85%AC.png](../static/images/이벤트현황_조회.png)
